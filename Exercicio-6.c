@@ -5,23 +5,19 @@
 int main(){
     setlocale(LC_ALL, "Portuguese");
 
-    int contador, i = 0;
+    int posicao, i = 0;
     float numeros[30];
 
-    while (i < 30){
-        contador++;
-        printf("Entre com o %iº numero: ", i+1);
+    do {
+        printf("Entre com o %iÂº numero: ", i+1);
         scanf("%f", &numeros[i]);
-        if (numeros[i] == 0){
-            break;
-        }
+        posicao = i;
         i++;
-    }
+    } while(numeros[posicao] != 0 && i < 30);
 
-    printf("\n");
-
-    for (i = 0; i < contador-1; i++){
-        printf("%iº valor - %f \n", i+1 , numeros[i]);
+    printf("\n------------------------------------------------\n\n");
+    for (i = 0; i <= posicao; i++){
+        printf("%iÂº valor - %f \n", i+1 , numeros[i]);
     }
 
     printf("\n");
