@@ -12,9 +12,6 @@ int main(){
         printf("\n");
         printf("Defina X (numero de linhas e colunas que a matriz tera): ");
         scanf("%i", &mX);
-//        printf("Defina o numero de linhas que a matriz tera: ");
-//        scanf("%i", &mY);
-
         if (mX > 5 || mX < 1){
             printf("\nErro no cadastro do tamanho da matriz!");
             printf("\nO tamanho das linhas e colunas da matriz devem estar entre 1 e 5\n");
@@ -41,7 +38,7 @@ int main(){
     printf("\n---------------- Cheque as respostas ------------------\n");
     // FOR FEITO PARA PRINTAR AS RESPOSTAS ->
     int linhacontador = 1;
-    int indicecontador = 1;
+    int indicecontador = 0;
     int posicaomenor;
     int menor = matriz[0][0];
 
@@ -64,15 +61,14 @@ int main(){
             indicecontador++;
         }
         printf("\n");
-        printf("\nO maior numero da [%i] linha é o.............%i", linhacontador, maior);
-        printf("\nA soma dos numeros da [%i] linha é o.........%i", linhacontador, somalinha);
+        printf("\n[%i] linha - O maior é o............. %i", linhacontador, maior);
+        printf("\n[%i] linha - A soma da............... %i", linhacontador, somalinha);
         linhacontador++;
     }
     printf("\n");
-    printf("\nA posição do menor numero da matriz é.......%i", posicaomenor);
-    printf("\nO indice do menor numero da matriz é........%i", posicaomenor-1);
+    printf("\nA posição do menor numero da matriz é....... %i", posicaomenor+1);
+    printf("\nO indice do menor numero da matriz é........ %i", posicaomenor);
     printf("\n");
-
     printf("\n\n");
     printf("\n-------------------------------------------------------\n\n");
 
