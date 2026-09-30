@@ -5,86 +5,81 @@
 int main(){
     setlocale(LC_ALL, "portuguese");
 
-    int i, j, mX = 0, contador = 1;
-    int k = 0, l = 0, m = 0, n = 0;
+    int l, c, tamanhoM = 0, contador = 1;
 
     do{
         printf("\n");
         printf("Defina X (numero de linhas e colunas que a matriz tera): ");
-        scanf("%i", &mX);
-        if (mX > 5 || mX < 1){
+        scanf("%i", &tamanhoM);
+        if (tamanhoM > 5 || tamanhoM < 1){
             printf("\nErro no cadastro do tamanho da matriz!");
             printf("\nO tamanho das linhas e colunas da matriz devem estar entre 1 e 5\n");
             system("pause");
             system("cls");
         }
-    } while(mX > 5 || mX < 1);
+        printf("\n");
+    } while(tamanhoM > 5 || tamanhoM < 1);
 
-    int mY = mX;
-    int matriz[mX][mY];
-    printf("\n");
+    
+    int matriz[tamanhoM][tamanhoM]; // matriz é criada com o tamanho descrito
 
-    // FOR FEITO PARA LEITURA DOS VALORES ->
-    for (i = 0; i < mY; i++){
-        for (j = 0; j < mX; j++){
+    
+    for (l = 0; l < tamanhoM; l++){
+        for (c = 0; c < tamanhoM; c++){
             printf("[%i] Valor: ", contador);
-            scanf("%i", &matriz[i][j]);
+            scanf("%i", &matriz[l][c]);
             contador++;
         }
-        printf("\n");
+        printf("\n"); 
     }
 
 
     printf("\n---------------- Cheque as respostas ------------------\n");
-    // FOR FEITO PARA PRINTAR AS RESPOSTAS ->
-    int linhacontador = 1;
-    int indicecontador = 0;
-    int posicaomenor;
+
+    int indice = 0;
+    int posicaoMenor = 0;
     int menor = matriz[0][0];
 
-    for (m = 0; m < mY; m++){
-        int somalinha = 0;
-        int maior = matriz[m][0];
+    for (l = 0; l < tamanhoM; l++){
 
-        for (n = 0; n < mX; n++){
+        int somaLinha = 0;
+        int maior = matriz[l][0];
 
-            if(maior < matriz[m][n]){
-                maior = matriz[m][n];
+        for (c = 0; c < tamanhoM; c++){
+
+            if(maior < matriz[l][c]){
+                maior = matriz[l][c];
             }
 
-            if(menor > matriz[m][n]){
-                menor = matriz[m][n];
-                posicaomenor = indicecontador;
+            if(menor > matriz[l][c]){
+                menor = matriz[l][c];
+                posicaoMenor = indice;
 
             }
-            somalinha += matriz[m][n];
-            indicecontador++;
+            somaLinha += matriz[l][c];
+            indice++;
         }
         printf("\n");
-        printf("\n[%i] linha - O maior é o............. %i", linhacontador, maior);
-        printf("\n[%i] linha - A soma da............... %i", linhacontador, somalinha);
-        linhacontador++;
+        printf("\n[%i] linha - O maior é o............. %i", l+1, maior);
+        printf("\n[%i] linha - A soma da............... %i", l+1, somaLinha);
     }
-    printf("\n");
-    printf("\nA posição do menor numero da matriz é....... %i", posicaomenor+1);
-    printf("\nO indice do menor numero da matriz é........ %i", posicaomenor);
-    printf("\n");
-    printf("\n\n");
-    printf("\n-------------------------------------------------------\n\n");
+    printf("\n\nA posição do menor numero da matriz é....... %i", posicaoMenor+1);
+    printf("\nO indice do menor numero da matriz é........ %i", posicaoMenor);
 
+
+    printf("\n");
+    printf("\n");
 
 
     printf("\n-------------- Cheque sua matriz abaixo! --------------\n\n");
 
-    //  FOR FEITO PARA PRINTAR A MATRIZ DOS VALORES ->
-    for (k = 0; k < mY; k++){
-        for (l = 0; l < mX; l++){
-            printf("%i ", matriz[k][l]);
+    for (l = 0; l < tamanhoM; l++){
+        for (c = 0; c < tamanhoM; c++){
+            printf("%i ", matriz[l][c]);
         }
-        printf("\n");
+        printf("\n"); // Quebro a linha pra ler no formato correto
     }
 
     printf("\n-------------------------------------------------------\n\n");
-
     system("exit");
 }
