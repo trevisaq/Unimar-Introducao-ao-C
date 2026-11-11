@@ -1,8 +1,7 @@
-# include <stdio.h>
-# include <stdlib.h>
-# include <conio.h>
-#include <stdbool.h> // Biblioteca necess·ria para bool, true e false
-# include <locale.h>
+#include <stdbool.h> // Biblioteca necess√°ria para bool, true e false
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
 
 typedef struct no{
     int info;
@@ -82,6 +81,25 @@ bool buscar_valor(no *raiz, int valor) {
         return buscar_valor(raiz->dir, valor);
 }
 
+void buscar_na_arvore(no *raiz){
+
+    int valorBuscado;
+    const char *resultado;
+
+    printf("Digite um valor para buscar na arvore: ");
+    scanf("%d", &valorBuscado);
+    printf("\nBuscando o numero %i na arvore...", valorBuscado);
+
+    if (buscar_valor(raiz, valorBuscado)){
+        resultado = "foi encontrado!";
+    } else {
+        resultado = "nao foi encontrado!";
+    }
+
+    printf("\nO valor %i %s",valorBuscado,  resultado);
+
+}
+
 int main (){
     no *raiz;
     raiz = inicializa();
@@ -102,22 +120,11 @@ int main (){
     printf("\n");
     printf("\nMaior valor: %d",encontra_maior(raiz));
     printf("\nMenor valor: %d",encontra_menor(raiz));
+
     printf("\n\n--------------------------------------------\n\n");
 
-    int valorBuscado;
-    printf("Digite um valor para buscar na arvore: ");
-    scanf("%d", &valorBuscado);
-
-    printf("\nBuscando o numero %i na arvore...", valorBuscado);
-    const char *resultado;
-
-    if (buscar_valor(raiz, valorBuscado)){
-        resultado = "foi encontrado!";
-    } else {
-        resultado = "nao foi encontrado!";
-    }
-
-    printf("\nO valor %i %s",valorBuscado,  resultado);
+    buscar_na_arvore(raiz);
+    printf("\n");
 
     return 0;
 }
